@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nonRunBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="smokeGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(148, 163, 184, 0.8)"/>
+      <stop offset="60%" stop-color="rgba(203, 213, 225, 0.4)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <radialGradient id="shadowNon" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.35)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="200" cy="210" rx="160" ry="18" fill="url(#shadowNon)" />
+
+  <!-- Car Body (Modern Dark Hatchback / Crossover) -->
+  <path d="M 65 175 
+           Q 60 145 78 135 
+           L 110 115 
+           Q 145 70 190 70 
+           L 260 72 
+           Q 295 80 318 120 
+           L 350 135 
+           Q 365 145 365 170 
+           L 355 185 
+           L 310 185 
+           Q 310 152 280 152 
+           Q 250 152 250 185 
+           L 150 185 
+           Q 150 152 120 152 
+           Q 90 152 90 185 
+           L 65 185 Z" 
+        fill="url(#nonRunBody)" stroke="#475569" stroke-width="2"/>
+
+  <!-- Windows -->
+  <path d="M 120 115 L 180 80 L 220 80 L 220 115 Z" fill="#38bdf8" fill-opacity="0.5"/>
+  <path d="M 228 80 L 255 80 L 285 115 L 228 115 Z" fill="#38bdf8" fill-opacity="0.5"/>
+
+  <!-- Open Engine Hood / Smoke Effect -->
+  <g transform="translate(300, 75)">
+    <!-- Smoke puffs from engine -->
+    <circle cx="20" cy="20" r="18" fill="url(#smokeGrad)"/>
+    <circle cx="35" cy="5" r="24" fill="url(#smokeGrad)"/>
+    <circle cx="10" cy="-10" r="16" fill="url(#smokeGrad)"/>
+    <circle cx="45" cy="-20" r="28" fill="url(#smokeGrad)"/>
+    <!-- Warning Wrench Icon -->
+    <circle cx="25" cy="-15" r="16" fill="#f59e0b"/>
+    <path d="M 20 -20 L 24 -16 L 31 -23 L 28 -26 Q 25 -27 22 -24 Z M 21 -14 L 32 -3 A 2 2 0 0 1 30 0 L 19 -11 Z" fill="#ffffff"/>
+  </g>
+
+  <!-- Headlights & Taillights -->
+  <polygon points="345,140 360,145 355,155 340,150" fill="#e2e8f0"/>
+  <polygon points="68,145 76,144 74,155 67,153" fill="#ef4444"/>
+
+  <!-- Door lines -->
+  <line x1="175" y1="115" x2="175" y2="180" stroke="#334155" stroke-width="2"/>
+  <line x1="225" y1="115" x2="225" y2="180" stroke="#334155" stroke-width="2"/>
+  <rect x="180" y="130" width="12" height="4" rx="2" fill="#64748b"/>
+  <rect x="235" y="130" width="12" height="4" rx="2" fill="#64748b"/>
+
+  <!-- Wheels -->
+  <g transform="translate(120, 185)">
+    <circle cx="0" cy="0" r="26" fill="#0f172a"/>
+    <circle cx="0" cy="0" r="16" fill="#475569"/>
+    <circle cx="0" cy="0" r="6" fill="#1e293b"/>
+    <circle cx="0" cy="0" r="12" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  </g>
+  <g transform="translate(280, 185)">
+    <circle cx="0" cy="0" r="26" fill="#0f172a"/>
+    <circle cx="0" cy="0" r="16" fill="#475569"/>
+    <circle cx="0" cy="0" r="6" fill="#1e293b"/>
+    <circle cx="0" cy="0" r="12" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Non-Running Badge overlay -->
+  <g transform="translate(40, 40)">
+    <rect width="115" height="26" rx="13" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="57" y="18" fill="#b45309" font-size="12" font-weight="700" font-family="system-ui" text-anchor="middle">ENGINE ISSUE</text>
+  </g>
+</svg>

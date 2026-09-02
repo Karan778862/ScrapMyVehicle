@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ecfdf5"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+    <linearGradient id="carBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="bagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="50%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+    <linearGradient id="cashGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059647"/>
+    </linearGradient>
+    <radialGradient id="shadowBig" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.3)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ground Shadows -->
+  <ellipse cx="230" cy="270" rx="200" ry="25" fill="url(#shadowBig)" />
+  <ellipse cx="440" cy="280" rx="100" ry="20" fill="url(#shadowBig)" />
+
+  <!-- Modern White Sedan Car on Left-Center -->
+  <!-- Car Silhouette -->
+  <path d="M 60 210 
+           C 55 180, 75 165, 105 155
+           L 155 130
+           C 200 80, 260 80, 310 82
+           L 380 90
+           C 420 100, 445 140, 475 160
+           C 495 175, 490 210, 480 230
+           L 460 245
+           L 410 245
+           Q 410 195, 370 195
+           Q 330 195, 330 245
+           L 190 245
+           Q 190 195, 150 195
+           Q 110 195, 110 245
+           L 60 235 Z" 
+        fill="url(#carBodyGrad)" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Windows -->
+  <path d="M 165 130 L 235 90 L 305 90 L 305 130 Z" fill="#0f172a" fill-opacity="0.8"/>
+  <path d="M 315 90 L 375 95 L 430 135 L 315 135 Z" fill="#0f172a" fill-opacity="0.8"/>
+  <!-- Window Glass reflection -->
+  <path d="M 175 128 L 235 93 L 265 93 L 195 128 Z" fill="#38bdf8" fill-opacity="0.4"/>
+  <path d="M 320 93 L 360 96 L 390 132 L 340 132 Z" fill="#38bdf8" fill-opacity="0.4"/>
+
+  <!-- Headlights & Grille -->
+  <polygon points="465,165 488,175 480,195 455,185" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <circle cx="475" cy="180" r="5" fill="#38bdf8" opacity="0.8"/>
+  <!-- Front bumper line -->
+  <path d="M 450 190 Q 480 200 475 225" stroke="#64748b" stroke-width="2" fill="none"/>
+
+  <!-- Rear Light -->
+  <polygon points="63,180 80,175 76,195 62,192" fill="#ef4444"/>
+
+  <!-- Car Door lines & handles -->
+  <line x1="230" y1="130" x2="225" y2="235" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="310" y1="130" x2="310" y2="235" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="240" y="145" width="16" height="5" rx="2.5" fill="#64748b"/>
+  <rect x="325" y="145" width="16" height="5" rx="2.5" fill="#64748b"/>
+
+  <!-- Wheels -->
+  <g transform="translate(150, 245)">
+    <circle cx="0" cy="0" r="32" fill="#1e293b"/>
+    <circle cx="0" cy="0" r="20" fill="#e2e8f0"/>
+    <circle cx="0" cy="0" r="8" fill="#334155"/>
+    <circle cx="0" cy="0" r="15" stroke="#64748b" stroke-width="3" fill="none"/>
+  </g>
+  <g transform="translate(370, 245)">
+    <circle cx="0" cy="0" r="32" fill="#1e293b"/>
+    <circle cx="0" cy="0" r="20" fill="#e2e8f0"/>
+    <circle cx="0" cy="0" r="8" fill="#334155"/>
+    <circle cx="0" cy="0" r="15" stroke="#64748b" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- Big Indian Rupee Money Bag in foreground (Right side) -->
+  <g transform="translate(420, 140)">
+    <!-- Bag Shape -->
+    <path d="M 40 40 
+             C 10 50, -10 90, -5 130 
+             C 0 160, 30 180, 75 180 
+             C 120 180, 150 160, 155 130 
+             C 160 90, 140 50, 110 40 
+             C 120 20, 110 5, 95 10 
+             C 75 18, 75 18, 55 10 
+             C 40 5, 30 20, 40 40 Z" 
+          fill="url(#bagGrad)" stroke="#78350f" stroke-width="3"/>
+    
+    <!-- Bag Neck Rope / Tie -->
+    <ellipse cx="75" cy="40" rx="35" ry="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <path d="M 65 42 L 50 65 L 58 68 L 72 45" fill="#fef3c7"/>
+    <path d="M 80 42 L 95 65 L 87 68 L 76 45" fill="#fef3c7"/>
+
+    <!-- Big Rupee Symbol ₹ in center of Bag -->
+    <circle cx="75" cy="115" r="34" fill="#fef3c7" fill-opacity="0.25"/>
+    <text x="75" y="132" fill="#ffffff" font-size="48" font-weight="900" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle">₹</text>
+  </g>
+
+  <!-- Stacks of 500 Rupee Currency Bundles -->
+  <g transform="translate(490, 230)">
+    <!-- Stack 1 -->
+    <polygon points="10,20 80,5 110,20 40,35" fill="#10b981" stroke="#047857"/>
+    <polygon points="10,25 80,10 110,25 40,40" fill="#34d399" stroke="#047857"/>
+    <polygon points="10,30 80,15 110,30 40,45" fill="#10b981" stroke="#047857"/>
+    <!-- Stack 2 -->
+    <polygon points="-40,35 30,20 60,35 -10,50" fill="#34d399" stroke="#047857"/>
+    <polygon points="-40,40 30,25 60,40 -10,55" fill="#10b981" stroke="#047857"/>
+    <!-- Stack 3 -->
+    <polygon points="30,45 100,30 130,45 60,60" fill="#34d399" stroke="#047857"/>
+  </g>
+</svg>

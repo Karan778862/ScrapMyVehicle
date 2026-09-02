@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dmgCarBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="50%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="dmgDent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <radialGradient id="shadowDmg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.3)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="200" cy="210" rx="160" ry="18" fill="url(#shadowDmg)" />
+
+  <!-- Car Body Main Structure -->
+  <!-- Rear to Front -->
+  <path d="M 60 160 
+           Q 65 140 85 135 
+           L 130 115 
+           Q 150 75 190 75 
+           L 270 78 
+           Q 300 85 325 125 
+           L 355 140
+           Q 370 150 365 175
+           L 350 185
+           L 310 185
+           Q 310 150 280 150
+           Q 250 150 250 185
+           L 150 185
+           Q 150 150 120 150
+           Q 90 150 90 185
+           L 60 180 Z" 
+        fill="url(#dmgCarBody)" stroke="#334155" stroke-width="2"/>
+
+  <!-- Cabin Roof & Windows -->
+  <path d="M 140 115 L 195 82 L 265 85 L 295 120 Z" fill="#0f172a" />
+  <path d="M 145 113 L 195 85 L 225 86 L 225 113 Z" fill="#38bdf8" fill-opacity="0.6"/>
+  <path d="M 233 86 L 263 87 L 290 116 L 233 115 Z" fill="#38bdf8" fill-opacity="0.6"/>
+
+  <!-- Accidental Dents / Impact on Front & Hood -->
+  <path d="M 310 125 Q 330 135 340 155 Q 320 160 305 145 Z" fill="url(#dmgDent)" />
+  <path d="M 325 125 L 345 145 L 360 140 L 335 122 Z" fill="#1e293b" opacity="0.7"/>
+  <!-- Scratch / Crack lines -->
+  <line x1="330" y1="130" x2="350" y2="155" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2"/>
+  <line x1="315" y1="135" x2="340" y2="140" stroke="#f87171" stroke-width="1.5"/>
+  <line x1="280" y1="120" x2="310" y2="135" stroke="#1e293b" stroke-width="2"/>
+  <!-- Broken Headlight with sparks -->
+  <polygon points="350,145 365,152 358,162 345,155" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="360" cy="150" r="3" fill="#f59e0b"/>
+
+  <!-- Rear Light -->
+  <polygon points="63,150 72,148 70,160 62,158" fill="#ef4444"/>
+
+  <!-- Wheels -->
+  <!-- Rear Wheel -->
+  <g transform="translate(120, 185)">
+    <circle cx="0" cy="0" r="26" fill="#1e293b"/>
+    <circle cx="0" cy="0" r="16" fill="#cbd5e1"/>
+    <circle cx="0" cy="0" r="6" fill="#475569"/>
+    <!-- spokes -->
+    <line x1="-14" y1="0" x2="14" y2="0" stroke="#64748b" stroke-width="3"/>
+    <line x1="0" y1="-14" x2="0" y2="14" stroke="#64748b" stroke-width="3"/>
+  </g>
+
+  <!-- Front Wheel (Flat / tilted damaged look) -->
+  <g transform="translate(280, 187) rotate(6)">
+    <ellipse cx="0" cy="0" rx="25" ry="22" fill="#0f172a"/>
+    <circle cx="0" cy="0" r="14" fill="#94a3b8"/>
+    <circle cx="0" cy="0" r="5" fill="#334155"/>
+    <line x1="-12" y1="0" x2="12" y2="0" stroke="#475569" stroke-width="3"/>
+    <line x1="0" y1="-12" x2="0" y2="12" stroke="#475569" stroke-width="3"/>
+  </g>
+
+  <!-- Dent detail on doors -->
+  <path d="M 180 145 Q 200 155 220 142" stroke="#334155" stroke-width="2.5" fill="none"/>
+  <path d="M 175 150 Q 195 162 215 148" stroke="#1e293b" stroke-width="1.5" fill="none"/>
+
+  <!-- Warning Badge overlay -->
+  <g transform="translate(40, 40)">
+    <rect width="105" height="26" rx="13" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="52" y="18" fill="#dc2626" font-size="12" font-weight="700" font-family="system-ui" text-anchor="middle">ACCIDENTAL</text>
+  </g>
+</svg>

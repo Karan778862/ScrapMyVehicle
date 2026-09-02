@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="craneYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="craneArm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="greenScrapCar" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="50%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <radialGradient id="shadowCrane" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.3)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Shadow under car -->
+  <ellipse cx="250" cy="370" rx="160" ry="18" fill="url(#shadowCrane)" />
+
+  <!-- Hydraulic Crane Arm coming from top right -->
+  <!-- Boom Section 1 -->
+  <polygon points="460,20 490,40 370,160 345,140" fill="url(#craneArm)" stroke="#0f172a" stroke-width="2"/>
+  <!-- Boom Section 2 -->
+  <polygon points="360,150 330,135 240,195 260,215" fill="url(#craneYellow)" stroke="#b45309" stroke-width="2"/>
+  <circle cx="350" cy="145" r="12" fill="#0f172a"/>
+  <circle cx="350" cy="145" r="5" fill="#f8fafc"/>
+
+  <!-- Hydraulic Cylinder Piston -->
+  <line x1="430" y1="60" x2="310" y2="165" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round"/>
+  <line x1="380" y1="105" x2="310" y2="165" stroke="#94a3b8" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Grapple Claw Assembly (Industrial 4-tine metal claw grabbing car roof) -->
+  <g transform="translate(245, 205)">
+    <!-- Swivel Rotator -->
+    <circle cx="0" cy="0" r="14" fill="#0f172a"/>
+    <rect x="-10" y="0" width="20" height="25" rx="3" fill="#334155"/>
+    <circle cx="0" cy="20" r="8" fill="#e2e8f0"/>
+
+    <!-- Claws / Tines gripping car roof -->
+    <!-- Left Claw 1 -->
+    <path d="M -8 20 C -25 35, -45 50, -40 75 C -35 85, -20 80, -15 65" fill="#1e293b" stroke="#0f172a" stroke-width="3"/>
+    <!-- Right Claw 1 -->
+    <path d="M 8 20 C 25 35, 45 50, 40 75 C 35 85, 20 80, 15 65" fill="#1e293b" stroke="#0f172a" stroke-width="3"/>
+    <!-- Center Claw -->
+    <path d="M -3 20 C -10 40, -10 65, 0 85 C 5 70, 5 45, 3 20" fill="#334155" stroke="#0f172a" stroke-width="2"/>
+  </g>
+
+  <!-- Green Scrap Car (Accident / Crushed being lifted) -->
+  <g transform="translate(40, 100)">
+    <!-- Car Body -->
+    <path d="M 60 210 
+             Q 55 175 75 160 
+             L 125 130 
+             Q 155 90 205 90 
+             L 275 92 
+             Q 310 100 335 140 
+             L 365 155 
+             Q 375 165 375 190 
+             L 365 215 
+             L 320 215 
+             Q 320 175 285 175 
+             Q 250 175 250 215 
+             L 150 215 
+             Q 150 175 115 175 
+             Q 80 175 80 215 
+             L 60 210 Z" 
+          fill="url(#greenScrapCar)" stroke="#065f46" stroke-width="3"/>
+
+    <!-- Crushed Roof indent where claw holds -->
+    <path d="M 180 90 Q 205 110 235 91" stroke="#064e3b" stroke-width="5" fill="none"/>
+
+    <!-- Windows (cracked/shattered) -->
+    <path d="M 135 130 L 195 95 L 230 95 L 230 130 Z" fill="#064e3b" fill-opacity="0.9"/>
+    <path d="M 238 95 L 270 95 L 305 130 L 238 130 Z" fill="#064e3b" fill-opacity="0.9"/>
+    <line x1="150" y1="110" x2="185" y2="100" stroke="#a7f3d0" stroke-width="1.5"/>
+    <line x1="165" y1="100" x2="175" y2="125" stroke="#a7f3d0" stroke-width="1.5"/>
+
+    <!-- Scratches, Rust & Dents on Car -->
+    <path d="M 90 170 Q 120 180 150 170" stroke="#78350f" stroke-width="3" fill="none"/>
+    <path d="M 280 150 Q 320 165 340 145" stroke="#064e3b" stroke-width="4" fill="none"/>
+    <polygon points="345,160 365,165 360,175 340,170" fill="#fef08a" opacity="0.6"/>
+
+    <!-- Wheels (old / flat) -->
+    <g transform="translate(115, 215)">
+      <circle cx="0" cy="0" r="28" fill="#1e293b"/>
+      <circle cx="0" cy="0" r="16" fill="#78350f"/>
+      <circle cx="0" cy="0" r="6" fill="#334155"/>
+    </g>
+    <g transform="translate(285, 215)">
+      <circle cx="0" cy="0" r="28" fill="#1e293b"/>
+      <circle cx="0" cy="0" r="16" fill="#78350f"/>
+      <circle cx="0" cy="0" r="6" fill="#334155"/>
+    </g>
+  </g>
+</svg>
