@@ -38,6 +38,11 @@ export default function App() {
       {/* 3. Hero Section & Instant Quote Card */}
       <HeroSection onQuoteResult={handleQuoteResult} />
 
+      {/* 7. We Buy All Types Of Vehicles */}
+      <VehicleTypesSection onSelectCondition={(cond) => {
+        // Will focus on the form
+      }} />
+
       {/* 4. Key Features 5-Item Strip */}
       <FeatureStrip />
 
@@ -46,11 +51,6 @@ export default function App() {
 
       {/* 6. Why Choose Scrap My Vehicle? - Dark Section */}
       <WhyChooseUs />
-
-      {/* 7. We Buy All Types Of Vehicles */}
-      <VehicleTypesSection onSelectCondition={(cond) => {
-        // Will focus on the form
-      }} />
 
       {/* 8. Top Cities We Serve & Instant Cash Banner */}
       <InstantCashBanner />
@@ -69,9 +69,9 @@ export default function App() {
 
       {/* Interactive Modal */}
       {quoteResultData && (
-        <QuoteResultModal 
-          data={quoteResultData} 
-          onClose={handleCloseModal} 
+        <QuoteResultModal
+          data={quoteResultData}
+          onClose={handleCloseModal}
         />
       )}
 
