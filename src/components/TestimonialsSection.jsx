@@ -1,9 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { testimonialsList } from '../data/testimonialsData';
 import { Star } from 'lucide-react';
 
 export default function TestimonialsSection() {
   const [activeDot, setActiveDot] = useState(0);
+  const scrollRef = useRef(null);
+  
+  const testimonials = testimonialsList.slice(0, 3); // Use first 3 testimonials
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    
+    const container = scrollRef.current;
+    // Calculate which card is closest to the center
+    const scrollLeft = container.scrollLeft;
+    const itemWidth = container.scrollWidth / testimonials.length;
+    const newIndex = Math.round(scrollLeft / itemWidth);
+    
+    if (newIndex >= 0 && newIndex < testimonials.length) {
+      setActiveDot(newIndex);
+    }
+  };
+
+  const scrollToIdx = (idx) => {
+    setActiveDot(idx);
+    if (scrollRef.current && scrollRef.current.children[idx]) {
+      scrollRef.current.children[idx].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
+  };
 
   return (
     <section className="testimonials-section" id="testimonials">
@@ -11,8 +39,8 @@ export default function TestimonialsSection() {
         <h2 className="testimonials-heading">WHAT OUR CUSTOMERS SAY</h2>
         <p className="testimonials-subheading">Real stories from real customers</p>
 
-        <div className="testimonials-grid">
-          {testimonialsList.slice(0, 3).map((item) => (
+        <div className="testimonials-grid" ref={scrollRef} onScroll={handleScroll}>
+          {testimonials.map((item) => (
             <div key={item.id} className="testimonial-card">
               <div>
                 <div className="quote-icon-mark">“</div>
@@ -37,11 +65,11 @@ export default function TestimonialsSection() {
 
         {/* Carousel indicator dots */}
         <div className="carousel-dots">
-          {[0, 1, 2, 3].map((idx) => (
+          {testimonials.map((_, idx) => (
             <button
               key={idx}
               className={`dot-item ${activeDot === idx ? 'active' : ''}`}
-              onClick={() => setActiveDot(idx)}
+              onClick={() => scrollToIdx(idx)}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
