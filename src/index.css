@@ -177,7 +177,7 @@ img {
    ========================================================================== */
 .main-navbar {
   position: sticky;
-  top: 17px;
+  top: 0;
   z-index: 1000;
   background: #ffffff;
   border-bottom: 1px solid var(--slate-200);
