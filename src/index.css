@@ -1990,6 +1990,19 @@ img {
     padding: 30px 0 40px;
   }
 
+  .features-strip {
+    padding: 16px 0;
+  }
+
+  .why-choose-section,
+  .vehicle-types-section,
+  .how-it-works-section,
+  .instant-cash-section,
+  .testimonials-section,
+  .faq-section {
+    padding: 40px 0;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 24px;
