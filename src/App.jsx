@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import TopBar from './components/TopBar';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import FeatureStrip from './components/FeatureStrip';
-import HowItWorks from './components/HowItWorks';
-import WhyChooseUs from './components/WhyChooseUs';
-import VehicleTypesSection from './components/VehicleTypesSection';
-import InstantCashBanner from './components/InstantCashBanner';
-import TestimonialsSection from './components/TestimonialsSection';
-import FAQSection from './components/FAQSection';
-import BottomCTA from './components/BottomCTA';
 import Footer from './components/Footer';
+import TermsAndConditions from './components/TermsAndConditions';
 import QuoteResultModal from './components/QuoteResultModal';
 import FloatingActions from './components/FloatingActions';
+import Home from './pages/Home';
+import ProcessGuide from './pages/ProcessGuide';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import ContactUs from './pages/ContactUs';
 
 export default function App() {
   const [quoteResultData, setQuoteResultData] = useState(null);
@@ -35,34 +32,13 @@ export default function App() {
         document.getElementById('quote-form-card')?.scrollIntoView({ behavior: 'smooth' });
       }} />
 
-      {/* 3. Hero Section & Instant Quote Card */}
-      <HeroSection onQuoteResult={handleQuoteResult} />
-
-      {/* 7. We Buy All Types Of Vehicles */}
-      <VehicleTypesSection onSelectCondition={(cond) => {
-        // Will focus on the form
-      }} />
-
-      {/* 4. Key Features 5-Item Strip */}
-      <FeatureStrip />
-
-      {/* 5. How It Works - 4 Steps */}
-      <HowItWorks />
-
-      {/* 6. Why Choose Scrap My Vehicle? - Dark Section */}
-      <WhyChooseUs />
-
-      {/* 8. Top Cities We Serve & Instant Cash Banner */}
-      <InstantCashBanner />
-
-      {/* 9. Customer Testimonials */}
-      <TestimonialsSection />
-
-      {/* 10. Frequently Asked Questions with Crane Illustration */}
-      <FAQSection />
-
-      {/* 11. Bottom Call to Action Strip */}
-      <BottomCTA />
+      <Routes>
+        <Route path="/" element={<Home onQuoteResult={handleQuoteResult} />} />
+        <Route path="/terms-conditions" element={<TermsAndConditions />} />
+        <Route path="/process-guide" element={<ProcessGuide />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/contact" element={<ContactUs />} />
+      </Routes>
 
       {/* 12. Main Footer */}
       <Footer />

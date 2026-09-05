@@ -34,7 +34,7 @@ export const featureStripItems = [
 export const howItWorksSteps = [
   {
     step: 1,
-    title: 'Get a Quote',
+    title: 'Instant Quote',
     description: 'Share your vehicle details and get the best quote instantly.',
     iconName: 'FileEdit'
   },
@@ -52,7 +52,7 @@ export const howItWorksSteps = [
   },
   {
     step: 4,
-    title: 'RTO Clearance',
+    title: 'Certificate Issued',
     description: 'We handle all RTO formalities and documentations.',
     iconName: 'Stamp'
   }
@@ -94,7 +94,7 @@ export const whyChooseBadges = [
 export const vehicleTypeCategories = [
   {
     id: 'old',
-    title: 'Old Vehicles',
+    title: 'Old & Aging',
     subtitle: '10 - 15+ Years Old',
     desc: 'Government deregistered or high age vehicles',
     image: '/WE-BUY-ALL-TYPES-OF-VEHICLES/4.png',
@@ -102,7 +102,7 @@ export const vehicleTypeCategories = [
   },
   {
     id: 'damaged',
-    title: 'Damaged Vehicles',
+    title: 'Accident / Damaged',
     subtitle: 'Accidental or Not Working',
     desc: 'Total loss, flooded or collided vehicles',
     image: '/WE-BUY-ALL-TYPES-OF-VEHICLES/3.png',
@@ -110,7 +110,7 @@ export const vehicleTypeCategories = [
   },
   {
     id: 'non-running',
-    title: 'Non Running Vehicles',
+    title: 'Non-Running',
     subtitle: 'Engine or Mechanical Issue',
     desc: 'Dead battery, seized engine or gearbox failure',
     image: '/WE-BUY-ALL-TYPES-OF-VEHICLES/1.png',
@@ -118,7 +118,7 @@ export const vehicleTypeCategories = [
   },
   {
     id: 'unwanted',
-    title: 'Unwanted Vehicles',
+    title: 'Idle / Unwanted',
     subtitle: 'You don\'t use anymore',
     desc: 'Idle vehicles taking up precious parking space',
     image: '/WE-BUY-ALL-TYPES-OF-VEHICLES/2.png',

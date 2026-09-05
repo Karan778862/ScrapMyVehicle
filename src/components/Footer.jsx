@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Instagram, Youtube, Linkedin, PhoneCall, Mail, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -48,9 +49,9 @@ export default function Footer() {
               <li><a href="#home">About Us</a></li>
               <li><a href="#how-it-works">How It Works</a></li>
               <li><a href="#why-choose">Why Scrap My Vehicle</a></li>
-              <li><a href="#vehicle-types">Our Process</a></li>
+              <li><Link to="/process-guide">Our Process</Link></li>
               <li><a href="#faq">Blog</a></li>
-              <li><a href="#contact">Contact Us</a></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -58,10 +59,10 @@ export default function Footer() {
           <div className="footer-links-col">
             <h4 className="footer-col-title">SERVICES</h4>
             <ul className="footer-links-list">
-              <li><a href="#vehicle-types">Vehicle Scrapping</a></li>
-              <li><a href="#vehicle-types">Old Vehicle Buying</a></li>
-              <li><a href="#vehicle-types">Damaged Vehicle Buying</a></li>
-              <li><a href="#vehicle-types">Non-Running Vehicle Buying</a></li>
+              <li><a href="#quote-form-card" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Car Scrapping</a></li>
+              <li><a href="#quote-form-card" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Bike Scrapping</a></li>
+              <li><a href="#quote-form-card" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Truck Scrapping</a></li>
+              <li><a href="#quote-form-card" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>3 Wheeler Scrapping</a></li>
               <li><a href="#why-choose">RTO Clearance</a></li>
             </ul>
           </div>
@@ -71,8 +72,8 @@ export default function Footer() {
             <h4 className="footer-col-title">HELP</h4>
             <ul className="footer-links-list">
               <li><a href="#faq">FAQs</a></li>
-              <li><a href="#privacy">Terms & Conditions</a></li>
-              <li><a href="#privacy">Privacy Policy</a></li>
+              <li><Link to="/terms-conditions">Terms & Conditions</Link></li>
+              <li><Link to="/privacy-policy">Privacy Policy</Link></li>
             </ul>
           </div>
 

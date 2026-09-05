@@ -17,7 +17,7 @@ export default function VehicleTypesSection({ onSelectCondition }) {
     <section className="vehicle-types-section" id="vehicle-types">
       <div className="container">
         <h2 className="vehicle-types-heading">
-          <span className="green-text">WE BUY</span> ALL TYPES OF VEHICLES
+          <span className="green-text">WE SCRAP</span> ALL TYPES OF VEHICLES
         </h2>
         <p className="vehicle-types-subheading">Any Condition, Any Brand, Any Model</p>
 

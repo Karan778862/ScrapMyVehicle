@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { vehicleBrands, vehicleYears, calculateScrapEstimate } from '../data/vehiclesData';
-import { ArrowRight, Lock, Sparkles } from 'lucide-react';
+import { ArrowRight, Lock, Sparkles, Car, Bike, Truck, Tractor } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export default function InstantQuoteForm({ onQuoteResult }) {
+  const [vehicleType, setVehicleType] = useState('Car');
   const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
@@ -11,8 +12,11 @@ export default function InstantQuoteForm({ onQuoteResult }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+  // Get available brands for selected type
+  const brandsForType = vehicleBrands[vehicleType] || [];
+
   // Get available models for selected brand
-  const currentBrandObj = vehicleBrands.find(b => b.name === selectedBrand);
+  const currentBrandObj = brandsForType.find(b => b.name === selectedBrand);
   const availableModels = currentBrandObj ? currentBrandObj.models : [];
 
   const handleBrandChange = (e) => {
@@ -78,6 +82,36 @@ export default function InstantQuoteForm({ onQuoteResult }) {
       </div>
 
       <form onSubmit={handleSubmit} className="quote-form">
+        {/* Vehicle Type */}
+        <div className="form-group vehicle-type-group">
+          <label className="vehicle-type-label">Vehicle Type*</label>
+          <div className="vehicle-type-options">
+            {[
+              { id: 'Car', icon: Car, label: 'Car' },
+              { id: 'Bike', icon: Bike, label: 'Bike' },
+              { id: 'Truck', icon: Truck, label: 'Truck' },
+              { id: '3 Wheeler', icon: Tractor, label: '3 Wheeler' }
+            ].map((type) => {
+              const Icon = type.icon;
+              return (
+                <button
+                  key={type.id}
+                  type="button"
+                  className={`vehicle-type-btn ${vehicleType === type.id ? 'active' : ''}`}
+                  onClick={() => {
+                    setVehicleType(type.id);
+                    setSelectedBrand('');
+                    setSelectedModel('');
+                  }}
+                >
+                  <Icon size={18} />
+                  <span>{type.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Vehicle Brand */}
         <div className="form-group">
           <select 
@@ -87,7 +121,7 @@ export default function InstantQuoteForm({ onQuoteResult }) {
             id="vehicle-brand-select"
           >
             <option value="">Select Vehicle Brand</option>
-            {vehicleBrands.map((brand) => (
+            {brandsForType.map((brand) => (
               <option key={brand.name} value={brand.name}>
                 {brand.name}
               </option>
