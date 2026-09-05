@@ -46,11 +46,11 @@ export default function Footer() {
           <div className="footer-links-col">
             <h4 className="footer-col-title">COMPANY</h4>
             <ul className="footer-links-list">
-              <li><a href="#home">About Us</a></li>
-              <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#why-choose">Why Scrap My Vehicle</a></li>
+              <li><Link to="/#home">About Us</Link></li>
+              <li><Link to="/#how-it-works">How It Works</Link></li>
+              <li><Link to="/#why-choose">Why Scrap My Vehicle</Link></li>
               <li><Link to="/process-guide">Our Process</Link></li>
-              <li><a href="#faq">Blog</a></li>
+              <li><Link to="/#faq">Blog</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
@@ -59,11 +59,11 @@ export default function Footer() {
           <div className="footer-links-col">
             <h4 className="footer-col-title">SERVICES</h4>
             <ul className="footer-links-list">
-              <li><a href="#quote-form-card" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Car Scrapping</a></li>
-              <li><a href="#quote-form-card" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Bike Scrapping</a></li>
-              <li><a href="#quote-form-card" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Truck Scrapping</a></li>
-              <li><a href="#quote-form-card" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>3 Wheeler Scrapping</a></li>
-              <li><a href="#why-choose">RTO Clearance</a></li>
+              <li><Link to="/#quote-form-card">Car Scrapping</Link></li>
+              <li><Link to="/#quote-form-card">Bike Scrapping</Link></li>
+              <li><Link to="/#quote-form-card">Truck Scrapping</Link></li>
+              <li><Link to="/#quote-form-card">3 Wheeler Scrapping</Link></li>
+              <li><Link to="/#why-choose">RTO Clearance</Link></li>
             </ul>
           </div>
 
@@ -71,7 +71,7 @@ export default function Footer() {
           <div className="footer-links-col">
             <h4 className="footer-col-title">HELP</h4>
             <ul className="footer-links-list">
-              <li><a href="#faq">FAQs</a></li>
+              <li><Link to="/#faq">FAQs</Link></li>
               <li><Link to="/terms-conditions">Terms & Conditions</Link></li>
               <li><Link to="/privacy-policy">Privacy Policy</Link></li>
             </ul>

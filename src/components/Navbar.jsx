@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { 
   PhoneCall, 
   Menu, 
@@ -17,6 +18,8 @@ import {
 export default function Navbar({ onOpenQuoteModal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Add subtle shadow on scroll
   useEffect(() => {
@@ -52,19 +55,27 @@ export default function Navbar({ onOpenQuoteModal }) {
 
   const handleNavClick = (href) => {
     setMobileMenuOpen(false);
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate('/' + href);
+    } else {
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
   const handleQuoteClick = () => {
     setMobileMenuOpen(false);
-    const element = document.getElementById('quote-form-card');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    } else if (onOpenQuoteModal) {
-      onOpenQuoteModal();
+    if (location.pathname !== '/') {
+      navigate('/#quote-form-card');
+    } else {
+      const element = document.getElementById('quote-form-card');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else if (onOpenQuoteModal) {
+        onOpenQuoteModal();
+      }
     }
   };
 

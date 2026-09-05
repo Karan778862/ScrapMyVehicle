@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import TrustStats from '../components/TrustStats';
 import HowItWorks from '../components/HowItWorks';
@@ -11,6 +12,21 @@ import FAQSection from '../components/FAQSection';
 import BottomCTA from '../components/BottomCTA';
 
 export default function Home({ onQuoteResult }) {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.getElementById(location.hash.substring(1));
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <>
       {/* 3. Hero Section & Instant Quote Card */}
