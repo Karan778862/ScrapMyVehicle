@@ -2325,6 +2325,33 @@ img {
     flex: auto;
     margin-bottom: 24px;
   }
+  .what-we-scrap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    overflow-x: visible;
+    gap: 12px;
+  }
+  .scrap-category-card {
+    flex: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .what-we-scrap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .scrap-category-card {
+    padding: 16px 12px;
+  }
+  .scrap-icon-wrapper {
+    width: 52px;
+    height: 52px;
+  }
+  .scrap-category-card h3 {
+    font-size: 14px;
+  }
 }
 
 .trust-stats-section .stats-grid {
