@@ -31,7 +31,7 @@ export const faqList = [
   },
   {
     "id": 7,
-    "question": "How can I scrap my car online with Spinny?",
+    "question": "How can I scrap my car online with ScrapMyVehicle?",
     "answer": "You can scrap your car online by entering your vehicle details on ScrapMyVehicle, receiving an instant scrap quote, scheduling pickup, and completing documentation."
   },
   {
