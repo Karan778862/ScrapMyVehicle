@@ -27,16 +27,16 @@ export default function Footer() {
               India's most trusted vehicle scrapping platform. We offer the best price, free pickup, instant payment and complete RTO assistance.
             </p>
             <div className="footer-social-icons">
-              <a href="#facebook" className="social-link-btn" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61594341355481" className="social-link-btn" aria-label="Facebook">
                 <Facebook size={17} />
               </a>
-              <a href="#instagram" className="social-link-btn" aria-label="Instagram">
+              <a href="https://www.instagram.com/scrapmyvehicles.in" className="social-link-btn" aria-label="Instagram">
                 <Instagram size={17} />
               </a>
-              <a href="#youtube" className="social-link-btn" aria-label="YouTube">
+              <a href="https://www.youtube.com/channel/UCCko01VfppxRwMIlSlAik0Q/" className="social-link-btn" aria-label="YouTube">
                 <Youtube size={17} />
               </a>
-              <a href="#linkedin" className="social-link-btn" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/scrap-my-vehicles/" className="social-link-btn" aria-label="LinkedIn">
                 <Linkedin size={17} />
               </a>
             </div>
@@ -85,9 +85,9 @@ export default function Footer() {
                 <PhoneCall size={16} />
                 <span>1800-72776-69227</span>
               </a>
-              <a href="mailto:info@scrapmyvehicle.in" className="footer-contact-row">
+              <a href="mailto:scrapmyvehiclesindia@gmail.com" className="footer-contact-row">
                 <Mail size={16} />
-                <span>info@scrapmyvehicle.in</span>
+                <span>scrapmyvehiclesindia@gmail.com</span>
               </a>
               <div className="footer-contact-row">
                 <Clock size={16} />

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PhoneCall, Mail, MapPin, Clock, Car, Zap, CheckCircle2 } from 'lucide-react';
 import FAQSection from '../components/FAQSection';
 
@@ -34,10 +34,36 @@ export default function ContactUs() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you! Your request has been received. Our team will contact you shortly.');
-    e.target.reset();
+    setIsSubmitting(true);
+    
+    try {
+      await fetch('https://script.google.com/macros/s/AKfycbytSQ-p_dnp-_zlZEs_VtISyrcVU78RAH78RcYPWgHkiWZP64Mevz8TgvQmx489ePk/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify({
+          FormType: 'Contact Us',
+          Name: formData.name,
+          Email: formData.email,
+          Phone: formData.phone,
+          Message: formData.message
+        })
+      });
+      
+      alert('Thank you! Your request has been received. Our team will contact you shortly.');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      alert('Something went wrong. Please try again.');
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -89,8 +115,8 @@ export default function ContactUs() {
               <a href="tel:18007277669227" className="cd-link">
                 <PhoneCall size={18} /> 1800-72776-69227
               </a>
-              <a href="mailto:info@scrapmyvehicle.in" className="cd-link">
-                <Mail size={18} /> info@scrapmyvehicle.in
+              <a href="mailto:scrapmyvehiclesindia@gmail.com" className="cd-link">
+                <Mail size={18} /> scrapmyvehiclesindia@gmail.com
               </a>
               <div className="cd-link">
                 <Clock size={18} /> Mon - Sat, 9AM - 7PM
@@ -104,21 +130,23 @@ export default function ContactUs() {
             <form className="contact-page-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Your Name*</label>
-                <input type="text" placeholder="John Doe" required />
+                <input type="text" placeholder="John Doe" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
               </div>
               <div className="form-group">
                 <label>Your Email*</label>
-                <input type="email" placeholder="john@example.com" required />
+                <input type="email" placeholder="john@example.com" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
               </div>
               <div className="form-group">
                 <label>Phone No.*</label>
-                <input type="tel" placeholder="+91 9876543210" required />
+                <input type="tel" placeholder="+91 9876543210" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
               </div>
               <div className="form-group">
                 <label>Message</label>
-                <textarea rows="4" placeholder="Tell us about your vehicle..."></textarea>
+                <textarea rows="4" placeholder="Tell us about your vehicle..." value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})}></textarea>
               </div>
-              <button type="submit" className="btn-contact-submit">Request a Callback</button>
+              <button type="submit" className="btn-contact-submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Submitting...' : 'Request a Callback'}
+              </button>
             </form>
           </div>
         </div>
@@ -148,7 +176,7 @@ export default function ContactUs() {
       </div>
       
       {/* Reusing existing FAQ component at the bottom */}
-      <FAQSection />
+      <FAQSection limit={5} />
     </div>
   );
 }

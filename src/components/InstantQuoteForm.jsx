@@ -50,6 +50,27 @@ export default function InstantQuoteForm({ onQuoteResult }) {
     // Calculate instant estimation
     const estimate = calculateScrapEstimate(selectedBrand, selectedModel, selectedYear);
 
+    // Send data to Google Sheet silently
+    try {
+      fetch('https://script.google.com/macros/s/AKfycbytSQ-p_dnp-_zlZEs_VtISyrcVU78RAH78RcYPWgHkiWZP64Mevz8TgvQmx489ePk/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify({
+          FormType: 'Instant Quote',
+          VehicleType: vehicleType,
+          Brand: selectedBrand,
+          Model: selectedModel,
+          Year: selectedYear,
+          Phone: mobileNumber,
+          Estimate: estimate
+        })
+      });
+    } catch (err) {
+      console.error('Error submitting to sheet:', err);
+    }
+
     // Trigger confetti celebration effect
     confetti({
       particleCount: 80,

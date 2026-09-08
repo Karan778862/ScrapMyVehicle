@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import ProcessGuide from './pages/ProcessGuide';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import ContactUs from './pages/ContactUs';
+import FAQPage from './pages/FAQPage';
 
 export default function App() {
   const [quoteResultData, setQuoteResultData] = useState(null);
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/process-guide" element={<ProcessGuide />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/faq" element={<FAQPage />} />
       </Routes>
 
       {/* 12. Main Footer */}

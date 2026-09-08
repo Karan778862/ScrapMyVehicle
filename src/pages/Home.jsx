@@ -56,7 +56,7 @@ export default function Home({ onQuoteResult }) {
       <TestimonialsSection />
 
       {/* 10. Frequently Asked Questions with Crane Illustration */}
-      <FAQSection />
+      <FAQSection limit={5} />
 
       {/* 11. Bottom Call to Action Strip */}
       <BottomCTA />
