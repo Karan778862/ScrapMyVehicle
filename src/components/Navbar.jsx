@@ -47,21 +47,24 @@ export default function Navbar({ onOpenQuoteModal }) {
     { label: 'Home', href: '#home', active: true, icon: Home },
     { label: 'About Us', href: '#why-choose', icon: Info },
     { label: 'How It Works', href: '#how-it-works', icon: HelpCircle },
-    { label: 'Why Scrap My Vehicle', href: '#why-choose', icon: Award },
-    { label: 'Our Process', href: '#vehicle-types', icon: Car },
-    { label: 'Blog', href: '#faq', icon: BookOpen },
-    { label: 'Contact Us', href: '#contact', icon: MessageSquare },
+    { label: 'Our Process', href: 'process-guide', icon: Car },
+    { label: 'FAQs', href: 'faq', icon: BookOpen },
+    { label: 'Contact Us', href: 'contact', icon: MessageSquare },
   ];
 
   const handleNavClick = (href) => {
     setMobileMenuOpen(false);
-    if (location.pathname !== '/') {
-      navigate('/' + href);
-    } else {
-      const targetElement = document.querySelector(href);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        navigate('/' + href);
+      } else {
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
       }
+    } else {
+      navigate('/' + href);
     }
   };
 

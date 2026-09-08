@@ -50,7 +50,7 @@ export default function Footer() {
               <li><Link to="/#how-it-works">How It Works</Link></li>
               <li><Link to="/#why-choose">Why Scrap My Vehicle</Link></li>
               <li><Link to="/process-guide">Our Process</Link></li>
-              <li><Link to="/#faq">Blog</Link></li>
+              <li><Link to="/faq">FAQs</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
@@ -71,7 +71,7 @@ export default function Footer() {
           <div className="footer-links-col">
             <h4 className="footer-col-title">HELP</h4>
             <ul className="footer-links-list">
-              <li><Link to="/#faq">FAQs</Link></li>
+              <li><Link to="/faq">FAQs</Link></li>
               <li><Link to="/terms-conditions">Terms & Conditions</Link></li>
               <li><Link to="/privacy-policy">Privacy Policy</Link></li>
             </ul>

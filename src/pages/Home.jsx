@@ -10,6 +10,7 @@ import InstantCashBanner from '../components/InstantCashBanner';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FAQSection from '../components/FAQSection';
 import BottomCTA from '../components/BottomCTA';
+import InstagramFeed from '../components/InstagramFeed';
 
 export default function Home({ onQuoteResult }) {
   const location = useLocation();
@@ -57,6 +58,9 @@ export default function Home({ onQuoteResult }) {
 
       {/* 10. Frequently Asked Questions with Crane Illustration */}
       <FAQSection limit={5} />
+
+      {/* NEW: Instagram Feed */}
+      <InstagramFeed />
 
       {/* 11. Bottom Call to Action Strip */}
       <BottomCTA />
