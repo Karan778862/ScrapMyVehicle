@@ -1,8 +1,12 @@
 import React from 'react';
-import { Check } from 'lucide-react';
+import { Check, CheckCircle } from 'lucide-react';
 import InstantQuoteForm from './InstantQuoteForm';
 
-export default function HeroSection({ onQuoteResult }) {
+export default function HeroSection({ 
+  onQuoteResult, 
+  title = "SCRAP YOUR VEHICLE THE RIGHT WAY",
+  bgImage
+}) {
   const bulletPoints = [
     'Instant Quote',
     'Free Pickup Anywhere',
@@ -11,18 +15,40 @@ export default function HeroSection({ onQuoteResult }) {
     'Best Price Guaranteed'
   ];
 
+  const renderTitle = () => {
+    // If it's the default title, wrap "THE RIGHT WAY" in span
+    if (title === "SCRAP YOUR VEHICLE THE RIGHT WAY") {
+      return (
+        <>
+          SCRAP YOUR VEHICLE
+          <span className="title-accent">THE RIGHT WAY</span>
+        </>
+      );
+    }
+    
+    // For custom dynamic titles, just highlight the last two words
+    const words = title.split(' ');
+    if (words.length <= 2) return <>{title}</>;
+    
+    const lastTwo = words.splice(-2).join(' ');
+    return (
+      <>
+        {words.join(' ')} <span className="title-accent">{lastTwo}</span>
+      </>
+    );
+  };
+
   return (
-    <section className="hero-section">
-      {/* Background Graphic Circle */}
-      <div className="hero-background-art"></div>
+    <section className="hero-section" style={bgImage ? { backgroundImage: `url(${bgImage})`, backgroundSize: 'cover' } : {}}>
+      {/* Background Graphic Circle (Only if no custom bgImage) */}
+      {!bgImage && <div className="hero-background-art"></div>}
 
       <div className="container">
         <div className="hero-grid">
           {/* Left Column: Headings & Value Props */}
           <div className="hero-left-content">
             <h1 className="hero-title">
-              SCRAP YOUR VEHICLE
-              <span className="title-accent">THE RIGHT WAY</span>
+              {renderTitle()}
             </h1>
             <p className="hero-subtitle">
               Get the Best Price for Your Old or Scrap Vehicle <br />
@@ -53,8 +79,6 @@ export default function HeroSection({ onQuoteResult }) {
               </div>
             </div>
           </div>
-
-
 
           {/* Right Column: Instant Quote Form Card */}
           <div className="hero-right-form">

@@ -25,7 +25,7 @@ export default function WhyChooseUs() {
       <div className="container">
         <div className="why-choose-header">
           <h2 className="why-choose-heading">
-            WHY CHOOSE <span className="green-highlight">SCRAP MY VEHICLE?</span>
+            WHY CHOOSE <span className="green-highlight">US?</span>
           </h2>
           <p className="why-choose-subtext">
             We make vehicle scrapping easy, safe and rewarding.

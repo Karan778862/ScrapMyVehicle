@@ -6,7 +6,7 @@ export default function TestimonialsSection() {
   const [activeDot, setActiveDot] = useState(0);
   const scrollRef = useRef(null);
   
-  const testimonials = testimonialsList.slice(0, 3); // Use first 3 testimonials
+  const testimonials = testimonialsList;
 
   const handleScroll = () => {
     if (!scrollRef.current) return;

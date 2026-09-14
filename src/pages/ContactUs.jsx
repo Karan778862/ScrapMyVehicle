@@ -42,7 +42,7 @@ export default function ContactUs() {
     setIsSubmitting(true);
     
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbytSQ-p_dnp-_zlZEs_VtISyrcVU78RAH78RcYPWgHkiWZP64Mevz8TgvQmx489ePk/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbz4K5TKzqA85IqSAeIssbf8YoYfCb5vlh7Fk8d5AdPVkrCco_or-qkJYM4082H0bCJl/exec', {
         method: 'POST',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8',

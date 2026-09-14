@@ -15,7 +15,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
-export default function Navbar({ onOpenQuoteModal }) {
+export default function Navbar({ onOpenQuoteModal, isLandingPage = false }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ export default function Navbar({ onOpenQuoteModal }) {
 
   const navItems = [
     { label: 'Home', href: '#home', active: true, icon: Home },
-    { label: 'About Us', href: '#why-choose', icon: Info },
+    { label: 'About Us', href: 'about-us', icon: Info },
     { label: 'How It Works', href: '#how-it-works', icon: HelpCircle },
     { label: 'Our Process', href: 'process-guide', icon: Car },
     { label: 'FAQs', href: 'faq', icon: BookOpen },
@@ -55,7 +55,7 @@ export default function Navbar({ onOpenQuoteModal }) {
   const handleNavClick = (href) => {
     setMobileMenuOpen(false);
     if (href.startsWith('#')) {
-      if (location.pathname !== '/') {
+      if (location.pathname !== '/' && location.pathname !== '/landing') {
         navigate('/' + href);
       } else {
         const targetElement = document.querySelector(href);
@@ -70,7 +70,7 @@ export default function Navbar({ onOpenQuoteModal }) {
 
   const handleQuoteClick = () => {
     setMobileMenuOpen(false);
-    if (location.pathname !== '/') {
+    if (location.pathname !== '/' && location.pathname !== '/landing') {
       navigate('/#quote-form-card');
     } else {
       const element = document.getElementById('quote-form-card');
@@ -103,30 +103,32 @@ export default function Navbar({ onOpenQuoteModal }) {
                 </svg>
               </div>
               <span className="brand-logo-text">
-                ScrapMyVehicle<span className="dot-in">.in</span>
+                ScrapMyVehicles<span className="dot-in">.in</span>
               </span>
             </a>
 
             {/* Center: Desktop Navigation Links */}
-            <nav className="desktop-nav">
-              <ul className="nav-links">
-                {navItems.map((item, idx) => (
-                  <li key={idx} className="nav-item">
-                    <a 
-                      href={item.href} 
-                      className={item.active ? 'active' : ''}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(item.href);
-                      }}
-                    >
-                      {item.label}
-                      {item.active && <span className="active-indicator"></span>}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            {!isLandingPage && (
+              <nav className="desktop-nav">
+                <ul className="nav-links">
+                  {navItems.map((item, idx) => (
+                    <li key={idx} className="nav-item">
+                      <a 
+                        href={item.href} 
+                        className={item.active ? 'active' : ''}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavClick(item.href);
+                        }}
+                      >
+                        {item.label}
+                        {item.active && <span className="active-indicator"></span>}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
 
             {/* Right: Phone & CTA Actions */}
             <div className="navbar-actions">
@@ -158,13 +160,15 @@ export default function Navbar({ onOpenQuoteModal }) {
               </a>
 
               {/* Mobile Hamburger Toggle Button */}
-              <button 
-                className="mobile-menu-toggle"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              >
-                {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-              </button>
+              {!isLandingPage && (
+                <button 
+                  className="mobile-menu-toggle"
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                >
+                  {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -196,7 +200,7 @@ export default function Navbar({ onOpenQuoteModal }) {
                 </svg>
               </div>
               <span style={{ fontSize: '19px', fontWeight: 800, color: 'var(--slate-900)' }}>
-                ScrapMyVehicle<span style={{ color: 'var(--primary-600)' }}>.in</span>
+                ScrapMyVehicles<span style={{ color: 'var(--primary-600)' }}>.in</span>
               </span>
             </div>
 

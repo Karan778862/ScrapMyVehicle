@@ -50,7 +50,6 @@ export default function Footer() {
               <li><Link to="/#how-it-works">How It Works</Link></li>
               <li><Link to="/#why-choose">Why Scrap My Vehicle</Link></li>
               <li><Link to="/process-guide">Our Process</Link></li>
-              <li><Link to="/faq">FAQs</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
@@ -63,7 +62,6 @@ export default function Footer() {
               <li><Link to="/#quote-form-card">Bike Scrapping</Link></li>
               <li><Link to="/#quote-form-card">Truck Scrapping</Link></li>
               <li><Link to="/#quote-form-card">3 Wheeler Scrapping</Link></li>
-              <li><Link to="/#why-choose">RTO Clearance</Link></li>
             </ul>
           </div>
 
