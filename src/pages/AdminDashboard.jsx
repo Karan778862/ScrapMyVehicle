@@ -23,7 +23,7 @@ export default function AdminDashboard() {
   // Fetch all cities on load
   const fetchCities = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/cities');
+      const response = await fetch('https://scrapmyvehicle.onrender.com/api/cities');
       const data = await response.json();
       setCities(data);
     } catch (err) {
@@ -72,7 +72,7 @@ export default function AdminDashboard() {
         data.append('heroBgImageFile', imageFile);
       }
 
-      const response = await fetch('http://localhost:5000/api/cities', {
+      const response = await fetch('https://scrapmyvehicle.onrender.com/api/cities', {
         method: 'POST',
         body: data // No Content-Type header; browser sets it automatically for FormData
       });
@@ -102,7 +102,7 @@ export default function AdminDashboard() {
 
   const handleToggle = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/cities/${id}/toggle`, { method: 'PATCH' });
+      const res = await fetch(`https://scrapmyvehicle.onrender.com/api/cities/${id}/toggle`, { method: 'PATCH' });
       if (res.ok) fetchCities();
     } catch (err) {
       console.error(err);
@@ -112,7 +112,7 @@ export default function AdminDashboard() {
   const handleDelete = async (id, name) => {
     if (window.confirm(`Are you sure you want to completely delete the page for ${name}?`)) {
       try {
-        const res = await fetch(`http://localhost:5000/api/cities/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://scrapmyvehicle.onrender.com/api/cities/${id}`, { method: 'DELETE' });
         if (res.ok) fetchCities();
       } catch (err) {
         console.error(err);

@@ -19,7 +19,7 @@ export default function CityLandingPage({ onQuoteResult }) {
     // Fetch city data from our Node.js backend
     const fetchCityData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/cities/${city}`);
+        const response = await fetch(`https://scrapmyvehicle.onrender.com/api/cities/${city}`);
         
         if (!response.ok) {
           throw new Error('City not found');
@@ -54,7 +54,7 @@ export default function CityLandingPage({ onQuoteResult }) {
 
   // Format image URL if it's an uploaded file
   const bgImageUrl = cityData.heroBgImage?.startsWith('/uploads/') 
-    ? `http://localhost:5000${cityData.heroBgImage}` 
+    ? `https://scrapmyvehicle.onrender.com${cityData.heroBgImage}` 
     : cityData.heroBgImage;
 
   return (
