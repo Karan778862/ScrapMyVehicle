@@ -46,7 +46,7 @@ export default function Footer() {
           <div className="footer-links-col">
             <h4 className="footer-col-title">COMPANY</h4>
             <ul className="footer-links-list">
-              <li><Link to="/#home">About Us</Link></li>
+              <li><Link to="/about-us">About Us</Link></li>
               <li><Link to="/#how-it-works">How It Works</Link></li>
               <li><Link to="/#why-choose">Why Scrap My Vehicle</Link></li>
               <li><Link to="/process-guide">Our Process</Link></li>
