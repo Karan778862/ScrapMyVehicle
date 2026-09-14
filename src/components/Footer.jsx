@@ -79,9 +79,9 @@ export default function Footer() {
           <div className="footer-links-col">
             <h4 className="footer-col-title">CONTACT US</h4>
             <div className="footer-contact-items">
-              <a href="tel:18007277669227" className="footer-contact-row">
+              <a href="tel:9808903131" className="footer-contact-row">
                 <PhoneCall size={16} />
-                <span>1800-72776-69227</span>
+                <span>9808903131, 9897270954</span>
               </a>
               <a href="mailto:scrapmyvehiclesindia@gmail.com" className="footer-contact-row">
                 <Mail size={16} />

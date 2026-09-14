@@ -75,7 +75,7 @@ export default function QuoteResultModal({ data, onClose }) {
               </button>
 
               <a 
-                href={`tel:18007277669227`}
+                href={`tel:9808903131`}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -90,7 +90,7 @@ export default function QuoteResultModal({ data, onClose }) {
                 }}
               >
                 <Phone size={16} color="var(--primary-600)" />
-                <span>Call Valuation Officer (1800-72776-69227)</span>
+                <span>Call us: 9808903131, 9897270954</span>
               </a>
             </div>
 

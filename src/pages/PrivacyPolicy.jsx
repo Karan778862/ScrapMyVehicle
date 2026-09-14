@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
                 <p>If you have any questions regarding how your data is processed, our privacy team is ready to assist you.</p>
                 <div className="contact-card-links">
                   <a href="mailto:privacy@scrapmyvehicle.in"><Mail size={16} /> privacy@scrapmyvehicle.in</a>
-                  <a href="tel:18007277669227"><PhoneCall size={16} /> 1800-72776-69227</a>
+                  <a href="tel:9808903131"><PhoneCall size={16} /> 9808903131, 9897270954</a>
                 </div>
               </div>
             </div>

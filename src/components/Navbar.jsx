@@ -132,12 +132,12 @@ export default function Navbar({ onOpenQuoteModal, isLandingPage = false }) {
 
             {/* Right: Phone & CTA Actions */}
             <div className="navbar-actions">
-              <a href="tel:18007277669227" className="phone-badge" title="Toll Free Call Support">
+              <a href="tel:9808903131" className="phone-badge" title="Call Support">
                 <div className="phone-icon-box">
                   <PhoneCall size={17} />
                 </div>
                 <div className="phone-info-text">
-                  <span className="phone-number">1800-72776-69227</span>
+                  <span className="phone-number">9808903131, 9897270954</span>
                   <span className="phone-hours">Mon - Sat, 9AM - 7PM</span>
                 </div>
               </a>
@@ -152,7 +152,7 @@ export default function Navbar({ onOpenQuoteModal, isLandingPage = false }) {
 
               {/* Mobile Quick Call Icon */}
               <a 
-                href="tel:18007277669227" 
+                href="tel:9808903131" 
                 className="mobile-quick-call-btn"
                 aria-label="Call Support"
               >
@@ -219,8 +219,8 @@ export default function Navbar({ onOpenQuoteModal, isLandingPage = false }) {
               <PhoneCall size={20} />
             </div>
             <div className="drawer-call-info">
-              <span className="drawer-call-title">Toll-Free Assistance</span>
-              <a href="tel:18007277669227" className="drawer-call-number">1800-72776-69227</a>
+              <span className="drawer-call-title">Assistance</span>
+              <a href="tel:9808903131" className="drawer-call-number">9808903131<br/>9897270954</a>
               <span className="drawer-call-time">Mon - Sat, 9:00 AM - 7:00 PM</span>
             </div>
           </div>

@@ -103,7 +103,7 @@ export default function TermsAndConditions() {
                 <p>Our legal and support team is here to clarify any doubts.</p>
                 <div className="contact-card-links">
                   <a href="mailto:scrapmyvehiclesindia@gmail.com"><Mail size={16} /> scrapmyvehiclesindia@gmail.com</a>
-                  <a href="tel:18007277669227"><PhoneCall size={16} /> 1800-72776-69227</a>
+                  <a href="tel:9808903131"><PhoneCall size={16} /> 9808903131, 9897270954</a>
                 </div>
               </div>
             </div>
