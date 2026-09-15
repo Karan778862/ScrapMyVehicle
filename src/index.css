@@ -2201,6 +2201,11 @@ img {
     width: 48px;
     height: 48px;
   }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
 
 /* ==========================================================================
