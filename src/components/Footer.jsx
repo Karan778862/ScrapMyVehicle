@@ -101,7 +101,7 @@ export default function Footer() {
 
         {/* Bottom Copyright */}
         <div className="footer-bottom-bar" style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
-          <p>© 2026 ScrapMyVehicle.in | All Rights Reserved</p>
+          <p>© 2026 ScrapMyVehicles.in | All Rights Reserved</p>
           <p style={{ fontSize: '13px', color: 'var(--slate-400)' }}>GST No: <strong>07AAGCE7592N1ZW</strong></p>
         </div>
       </div>
