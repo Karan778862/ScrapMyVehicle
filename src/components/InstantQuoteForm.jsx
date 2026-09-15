@@ -47,7 +47,8 @@ export default function InstantQuoteForm({ onQuoteResult }) {
       setErrorMessage('Please select manufacturing year.');
       return;
     }
-    if (!mobileNumber || mobileNumber.replace(/\D/g, '').length < 10) {
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!mobileNumber || !phoneRegex.test(mobileNumber)) {
       setErrorMessage('Please enter a valid 10-digit mobile number.');
       return;
     }
@@ -103,8 +104,13 @@ export default function InstantQuoteForm({ onQuoteResult }) {
 
   const handleCallbackSubmit = async (e) => {
     e.preventDefault();
-    if (!callbackData.name || !callbackData.phone) {
-      setCallbackError('Please fill in required fields.');
+    if (!callbackData.name) {
+      setCallbackError('Please enter your name.');
+      return;
+    }
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!callbackData.phone || !phoneRegex.test(callbackData.phone)) {
+      setCallbackError('Please enter a valid 10-digit mobile number.');
       return;
     }
 
@@ -323,10 +329,15 @@ export default function InstantQuoteForm({ onQuoteResult }) {
               <input 
                 type="tel" 
                 className="form-input" 
-                placeholder="+91 9876543210" 
+                placeholder="9876543210" 
                 required 
+                maxLength="10"
                 value={callbackData.phone} 
-                onChange={(e) => setCallbackData({...callbackData, phone: e.target.value})} 
+                onChange={(e) => {
+                  const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+                  setCallbackData({...callbackData, phone: val});
+                  setCallbackError('');
+                }} 
               />
             </div>
           </div>
