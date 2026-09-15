@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState(localStorage.getItem('admin_pwd') || '');
+  const [loginError, setLoginError] = useState('');
+  
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,8 +38,46 @@ export default function AdminDashboard() {
   };
 
   useEffect(() => {
-    fetchCities();
+    if (password) {
+      verifyPassword(password);
+    } else {
+      setLoading(false);
+    }
   }, []);
+
+  const verifyPassword = async (pwd) => {
+    try {
+      const response = await fetch('https://scrapmyvehicle.onrender.com/api/cities/verify-password', {
+        method: 'POST',
+        headers: { 'x-admin-password': pwd }
+      });
+      if (response.ok) {
+        setIsAuthenticated(true);
+        localStorage.setItem('admin_pwd', pwd);
+        fetchCities();
+      } else {
+        localStorage.removeItem('admin_pwd');
+        setPassword('');
+        setLoading(false);
+      }
+    } catch (err) {
+      setLoginError('Server connection failed. Try again.');
+      setLoading(false);
+    }
+  };
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    setLoginError('');
+    setLoading(true);
+    verifyPassword(password);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('admin_pwd');
+    setIsAuthenticated(false);
+    setPassword('');
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -74,6 +116,9 @@ export default function AdminDashboard() {
 
       const response = await fetch('https://scrapmyvehicle.onrender.com/api/cities', {
         method: 'POST',
+        headers: {
+          'x-admin-password': password
+        },
         body: data // No Content-Type header; browser sets it automatically for FormData
       });
 
@@ -102,7 +147,10 @@ export default function AdminDashboard() {
 
   const handleToggle = async (id) => {
     try {
-      const res = await fetch(`https://scrapmyvehicle.onrender.com/api/cities/${id}/toggle`, { method: 'PATCH' });
+      const res = await fetch(`https://scrapmyvehicle.onrender.com/api/cities/${id}/toggle`, { 
+        method: 'PATCH',
+        headers: { 'x-admin-password': password }
+      });
       if (res.ok) fetchCities();
     } catch (err) {
       console.error(err);
@@ -112,7 +160,10 @@ export default function AdminDashboard() {
   const handleDelete = async (id, name) => {
     if (window.confirm(`Are you sure you want to completely delete the page for ${name}?`)) {
       try {
-      const res = await fetch(`https://scrapmyvehicle.onrender.com/api/cities/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://scrapmyvehicle.onrender.com/api/cities/${id}`, { 
+        method: 'DELETE',
+        headers: { 'x-admin-password': password }
+      });
         if (res.ok) fetchCities();
       } catch (err) {
         console.error(err);
@@ -132,10 +183,38 @@ export default function AdminDashboard() {
               <ShieldCheck size={24} /> Admin Portal
             </h4>
           </div>
-          <div className="admin-header-subtitle">Manage Dynamic Location Pages</div>
+          {isAuthenticated && (
+            <button onClick={handleLogout} className="admin-back-btn" style={{ background: 'rgba(239, 68, 68, 0.2)', borderColor: 'rgba(239, 68, 68, 0.5)' }}>
+              Logout
+            </button>
+          )}
         </div>
       </div>
 
+      {!isAuthenticated ? (
+        <div className="admin-container" style={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}>
+          <div className="admin-card" style={{ maxWidth: '400px', width: '100%' }}>
+            <h4 style={{ textAlign: 'center', marginBottom: '20px' }}>Admin Login</h4>
+            {loginError && <div className="admin-alert admin-alert-danger">{loginError}</div>}
+            <form onSubmit={handleLoginSubmit}>
+              <div className="admin-form-group">
+                <label className="admin-label">Password</label>
+                <input 
+                  type="password" 
+                  className="admin-input" 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter admin password"
+                  required
+                />
+              </div>
+              <button type="submit" className="admin-submit-btn" disabled={loading}>
+                {loading ? 'Verifying...' : 'Login'}
+              </button>
+            </form>
+          </div>
+        </div>
+      ) : (
       <div className="admin-container">
         <div className="admin-grid">
           
@@ -314,6 +393,7 @@ export default function AdminDashboard() {
 
         </div>
       </div>
+      )}
     </div>
   );
 }

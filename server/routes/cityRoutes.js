@@ -3,6 +3,7 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 import City from '../models/City.js';
+import checkAdminPassword from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
@@ -60,8 +61,13 @@ router.get('/:slug', async (req, res) => {
   }
 });
 
+// POST verify password
+router.post('/verify-password', checkAdminPassword, (req, res) => {
+  res.json({ success: true, message: 'Password is correct' });
+});
+
 // POST new city (Admin use only) with Image Upload
-router.post('/', upload.single('heroBgImageFile'), async (req, res) => {
+router.post('/', checkAdminPassword, upload.single('heroBgImageFile'), async (req, res) => {
   try {
     const { slug, cityName, heroTitle, priceText } = req.body;
     let heroBgImage = req.body.heroBgImage || '/images/hero-bg.jpg';
@@ -94,7 +100,7 @@ router.post('/', upload.single('heroBgImageFile'), async (req, res) => {
 });
 
 // PATCH toggle active status
-router.patch('/:id/toggle', async (req, res) => {
+router.patch('/:id/toggle', checkAdminPassword, async (req, res) => {
   try {
     const city = await City.findById(req.params.id);
     if (!city) return res.status(404).json({ message: 'City not found' });
@@ -108,7 +114,7 @@ router.patch('/:id/toggle', async (req, res) => {
 });
 
 // DELETE a city
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', checkAdminPassword, async (req, res) => {
   try {
     const city = await City.findById(req.params.id);
     if (!city) return res.status(404).json({ message: 'City not found' });
