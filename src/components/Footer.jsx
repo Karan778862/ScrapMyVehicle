@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Col 1: Brand & Bio */}
           <div className="footer-col-about">
-            <a href="#home" className="footer-logo">
+            <a href="/" className="footer-logo">
               <svg style={{ width: '32px', height: '32px' }} viewBox="0 0 100 100" fill="none">
                 <circle cx="50" cy="50" r="46" fill="#059647" fillOpacity="0.2" stroke="#059647" strokeWidth="3"/>
                 <path d="M50 18 C32 18 18 32 18 50 C18 58 21 65 26 71" stroke="#059647" strokeWidth="6" strokeLinecap="round"/>

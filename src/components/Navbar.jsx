@@ -44,7 +44,7 @@ export default function Navbar({ onOpenQuoteModal, isLandingPage = false }) {
   }, [mobileMenuOpen]);
 
   const navItems = [
-    { label: 'Home', href: '#home', active: true, icon: Home },
+    { label: 'Home', href: '/', active: true, icon: Home },
     { label: 'About Us', href: 'about-us', icon: Info },
     { label: 'How It Works', href: '#how-it-works', icon: HelpCircle },
     { label: 'Our Process', href: 'process-guide', icon: Car },
@@ -88,7 +88,7 @@ export default function Navbar({ onOpenQuoteModal, isLandingPage = false }) {
         <div className="container">
           <div className="navbar-inner">
             {/* Left: Brand Logo */}
-            <a href="#home" className="brand-logo" onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}>
+            <a href="/" className="brand-logo" onClick={(e) => { e.preventDefault(); handleNavClick('/'); }}>
               <div className="brand-logo-icon-wrapper">
                 <svg className="brand-logo-icon" viewBox="0 0 100 100" fill="none">
                   <circle cx="50" cy="50" r="46" fill="#059647" fillOpacity="0.12" stroke="#059647" strokeWidth="3"/>
