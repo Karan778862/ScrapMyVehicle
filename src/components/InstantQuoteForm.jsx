@@ -57,7 +57,7 @@ export default function InstantQuoteForm({ onQuoteResult }) {
     setIsSubmitting(true);
 
     // Calculate instant estimation
-    const estimate = calculateScrapEstimate(selectedBrand, selectedModel, selectedYear);
+    const estimate = calculateScrapEstimate(vehicleType, selectedBrand, selectedModel, selectedYear);
 
     // Send data to Google Sheet silently
     try {

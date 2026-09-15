@@ -83,16 +83,26 @@ export const vehicleConditions = [
   { id: 'scrap', label: 'Total Scrap / Flood Damaged', multiplier: 0.75 }
 ];
 
-export function calculateScrapEstimate(brand, model, year, condition = 'old') {
+export function calculateScrapEstimate(type, brand, model, year, condition = 'old') {
   // Base scrap steel weight & spare parts value calculation
   let basePrice = 38000;
   
-  if (['Toyota', 'Mahindra', 'Ford'].includes(brand)) {
-    basePrice = 58000; // heavier SUV/MUV body metal
-  } else if (['Honda', 'Volkswagen', 'Skoda'].includes(brand)) {
-    basePrice = 46000;
-  } else if (['Tata', 'Hyundai'].includes(brand)) {
-    basePrice = 42000;
+  if (type === 'Bike') {
+    basePrice = 4500;
+    if (['Royal Enfield'].includes(brand)) basePrice = 12000;
+  } else if (type === 'Truck') {
+    basePrice = 150000;
+  } else if (type === '3 Wheeler') {
+    basePrice = 20000;
+  } else {
+    // Car
+    if (['Toyota', 'Mahindra', 'Ford'].includes(brand)) {
+      basePrice = 58000; // heavier SUV/MUV body metal
+    } else if (['Honda', 'Volkswagen', 'Skoda'].includes(brand)) {
+      basePrice = 46000;
+    } else if (['Tata', 'Hyundai'].includes(brand)) {
+      basePrice = 42000;
+    }
   }
 
   // Adjust for year
@@ -102,13 +112,20 @@ export function calculateScrapEstimate(brand, model, year, condition = 'old') {
   const conditionObj = vehicleConditions.find(c => c.id === condition) || vehicleConditions[0];
   const finalPrice = Math.round(basePrice * ageFactor * conditionObj.multiplier);
   
-  const minRange = Math.round(finalPrice * 0.92 / 500) * 500;
-  const maxRange = Math.round(finalPrice * 1.15 / 500) * 500;
+  const step = type === 'Bike' ? 100 : 500;
+  const minRange = Math.round(finalPrice * 0.92 / step) * step;
+  const maxRange = Math.round(finalPrice * 1.15 / step) * step;
+
+  let approxWeight = '950 - 1,350 kg';
+  if (type === 'Bike') approxWeight = '100 - 150 kg';
+  else if (type === 'Truck') approxWeight = '2,500 - 5,000 kg';
+  else if (type === '3 Wheeler') approxWeight = '300 - 450 kg';
+  else if (['Innova', 'Scorpio', 'Safari', 'Fortuner', 'Endeavour'].includes(model)) approxWeight = '1,650 - 2,100 kg';
 
   return {
     min: minRange,
     max: maxRange,
     formattedRange: `₹${minRange.toLocaleString('en-IN')} - ₹${maxRange.toLocaleString('en-IN')}`,
-    approxWeight: ['Innova', 'Scorpio', 'Safari', 'Fortuner', 'Endeavour'].includes(model) ? '1,650 - 2,100 kg' : '950 - 1,350 kg'
+    approxWeight
   };
 }
