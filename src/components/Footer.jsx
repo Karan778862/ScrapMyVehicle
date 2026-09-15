@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Youtube, Linkedin, PhoneCall, Mail, Clock } from 'lucide-react';
+import { Facebook, Instagram, Youtube, Linkedin, PhoneCall, Mail, Clock, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -91,13 +91,18 @@ export default function Footer() {
                 <Clock size={16} />
                 <span>Mon - Sat, 9AM - 7PM</span>
               </div>
+              <div className="footer-contact-row" style={{ alignItems: 'flex-start' }}>
+                <MapPin size={16} style={{ marginTop: '4px', flexShrink: 0 }} />
+                <span style={{ lineHeight: '1.4' }}>B-2/30, Mohan Cooperative Industrial Area, Badarpur Border, South Delhi - 110044</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Copyright */}
-        <div className="footer-bottom-bar">
+        <div className="footer-bottom-bar" style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
           <p>© 2026 ScrapMyVehicle.in | All Rights Reserved</p>
+          <p style={{ fontSize: '13px', color: 'var(--slate-400)' }}>GST No: <strong>07AAGCE7592N1ZW</strong></p>
         </div>
       </div>
     </footer>
