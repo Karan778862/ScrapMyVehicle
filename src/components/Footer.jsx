@@ -85,7 +85,7 @@ export default function Footer() {
               </a>
               <a href="mailto:scrapmyvehiclesindia@gmail.com" className="footer-contact-row">
                 <Mail size={16} />
-                <span>scrapmyvehiclesindia@gmail.com</span>
+                <span style={{ wordBreak: 'break-all' }}>scrapmyvehiclesindia@gmail.com</span>
               </a>
               <div className="footer-contact-row">
                 <Clock size={16} />
