@@ -64,7 +64,25 @@ export default function QuoteResultModal({ data, onClose }) {
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {/* Disclaimer Box */}
+            <div style={{
+              background: '#fffbeb',
+              border: '1px solid #fde68a',
+              borderRadius: '8px',
+              padding: '10px 12px',
+              marginTop: '12px',
+              marginBottom: '4px',
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '8px'
+            }}>
+              <ShieldCheck size={16} color="#b45309" style={{ flexShrink: 0, marginTop: '2px' }} />
+              <p style={{ fontSize: '12.5px', color: '#92400e', margin: 0, lineHeight: 1.4 }}>
+                <strong>Disclaimer:</strong> This is an estimated valuation, not a fixed price. The final offer may vary and will be confirmed only after a physical inspection of your vehicle by our executive.
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
               <button 
                 className="btn-primary" 
                 style={{ width: '100%', padding: '14px', fontSize: '15px' }}

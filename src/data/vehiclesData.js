@@ -95,13 +95,25 @@ export function calculateScrapEstimate(type, brand, model, year, condition = 'ol
   } else if (type === '3 Wheeler') {
     basePrice = 20000;
   } else {
-    // Car
-    if (['Toyota', 'Mahindra', 'Ford'].includes(brand)) {
-      basePrice = 58000; // heavier SUV/MUV body metal
-    } else if (['Honda', 'Volkswagen', 'Skoda'].includes(brand)) {
-      basePrice = 46000;
-    } else if (['Tata', 'Hyundai'].includes(brand)) {
-      basePrice = 42000;
+    // Car pricing based on vehicle size/weight segment
+    const suvs = ['Safari', 'Harrier', 'Scorpio', 'XUV500', 'Thar', 'Fortuner', 'Innova', 'Endeavour', 'Tucson', 'Captiva', 'Duster', 'Sumo', 'Bolero', 'Xylo', 'Tavera', 'Lodgy', 'Terrano'];
+    const sedans = ['City', 'Civic', 'Verna', 'Ciaz', 'Slavia', 'Rapid', 'Vento', 'Octavia', 'Superb', 'Corolla Altis', 'Camry', 'Elantra', 'Passat', 'Amaze', 'Dzire', 'Indigo', 'Accent', 'Cruze', 'Sunny', 'Scala', 'Line'];
+    const microCars = ['Alto 800', '800', 'Nano', 'Eon', 'Kwid', 'Spark', 'Omni'];
+
+    if (suvs.includes(model)) {
+      basePrice = 68000; // Heavy SUVs/MUVs (~1500-2000kg)
+    } else if (sedans.includes(model)) {
+      basePrice = 45000; // Sedans (~1100-1300kg)
+    } else if (microCars.includes(model)) {
+      basePrice = 28000; // Micro/entry hatchbacks (~700-800kg)
+    } else {
+      // Standard hatchbacks (Swift, i20, Baleno, etc. ~900-1000kg)
+      basePrice = 36000;
+      
+      // Slight premium for generally heavier brands if not caught above
+      if (['Tata', 'Volkswagen', 'Skoda', 'Ford'].includes(brand)) {
+        basePrice = 40000;
+      }
     }
   }
 
