@@ -306,7 +306,7 @@ export default function InstantQuoteForm({ onQuoteResult }) {
             <input 
               type="text" 
               className="form-input" 
-              placeholder="John Doe" 
+              placeholder="Rahul Sharma" 
               required 
               value={callbackData.name} 
               onChange={(e) => setCallbackData({...callbackData, name: e.target.value})} 
@@ -319,7 +319,7 @@ export default function InstantQuoteForm({ onQuoteResult }) {
               <input 
                 type="email" 
                 className="form-input" 
-                placeholder="john@example.com" 
+                placeholder="rahul@example.com" 
                 value={callbackData.email} 
                 onChange={(e) => setCallbackData({...callbackData, email: e.target.value})} 
               />
